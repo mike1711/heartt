@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+      <html>
+            <head>
+                  <title>HEART ANIMATION</title>
+                  <link rel="icon" type="x-icon" href="gambar/hati.png">
+            </head>
+            <body>
+                  <style>
+                        body{
+                              background-color: black;
+                              margin: 0;
+                              height: 100vh;
+
+                        }
+                        span{
+                              background-image: url(gambar/p-removebg-preview.png);
+                              width: 100px;
+                              height: 100px;
+                              position: absolute;
+                              background-size: cover;
+                              left: 50%;
+                              top: 50%;
+                              pointer-events: none;
+                              transform: translate(-50%, -50%);
+                              animation: animasi 6s linear;
+                        }
+
+                        @keyframes animasi {
+                              0%{
+                                    transform: translate(-50%, -50%);
+                                    opacity: 1;
+                                    filter: hue-rotate(0);
+                              }
+
+                              100%{
+                                    transform: translate(-50%, -5000%);
+                                    opacity: 0;
+                                    filter: hue-rotate(720deg);
+                              }
+                        }
+                  </style>
+                  <span></span>
+
+                  <script>
+                        const badan = document.querySelector("body");
+
+                        badan.addEventListener("mousemove", (kursor)=>{
+                              const horizontal = kursor.offsetX;
+                              const vertikal = kursor.offsetY;
+                              const spannya = document.createElement("span");
+                              spannya.style.left = horizontal + "px";
+                              spannya.style.top = vertikal + "px";
+                              const size = Math.random()*100
+                              spannya.style.width = size + "px"
+                              spannya.style.height = size + "px"
+                              badan.appendChild(spannya);
+                              setTimeout(()=>{     
+                                    spannya.remove();
+                              },3000)
+                        })
+                        
+                  </script>
+            </body>
+      </html>
